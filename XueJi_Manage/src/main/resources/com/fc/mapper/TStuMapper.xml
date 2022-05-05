@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fc.dao.TStuMapper">
+  <resultMap id="BaseResultMap" type="com.fc.entity.TStu">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="xuehao" jdbcType="VARCHAR" property="xuehao" />
+    <result column="name1" jdbcType="VARCHAR" property="name1" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="age" jdbcType="VARCHAR" property="age" />
+    <result column="banji_id" jdbcType="VARCHAR" property="banjiId" />
+    <result column="ruxueshijian" jdbcType="VARCHAR" property="ruxueshijian" />
+    <result column="biyeshijian" jdbcType="VARCHAR" property="biyeshijian" />
+    <result column="xuezhi" jdbcType="VARCHAR" property="xuezhi" />
+    <result column="xuexiao" jdbcType="VARCHAR" property="xuexiao" />
+    <result column="del" jdbcType="VARCHAR" property="del" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, xuehao, name1, sex, age, banji_id, ruxueshijian, biyeshijian, xuezhi, xuexiao, 
+    del
+  </sql>
+  <select id="selectByExample" parameterType="com.fc.entity.TStuExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_stu
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_stu
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_stu
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.fc.entity.TStuExample">
+    delete from t_stu
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.fc.entity.TStu">
+    insert into t_stu (id, xuehao, name1, 
+      sex, age, banji_id, 
+      ruxueshijian, biyeshijian, xuezhi, 
+      xuexiao, del)
+    values (#{id,jdbcType=INTEGER}, #{xuehao,jdbcType=VARCHAR}, #{name1,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR}, #{banjiId,jdbcType=VARCHAR}, 
+      #{ruxueshijian,jdbcType=VARCHAR}, #{biyeshijian,jdbcType=VARCHAR}, #{xuezhi,jdbcType=VARCHAR}, 
+      #{xuexiao,jdbcType=VARCHAR}, #{del,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fc.entity.TStu">
+    insert into t_stu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="xuehao != null">
+        xuehao,
+      </if>
+      <if test="name1 != null">
+        name1,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="banjiId != null">
+        banji_id,
+      </if>
+      <if test="ruxueshijian != null">
+        ruxueshijian,
+      </if>
+      <if test="biyeshijian != null">
+        biyeshijian,
+      </if>
+      <if test="xuezhi != null">
+        xuezhi,
+      </if>
+      <if test="xuexiao != null">
+        xuexiao,
+      </if>
+      <if test="del != null">
+        del,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="xuehao != null">
+        #{xuehao,jdbcType=VARCHAR},
+      </if>
+      <if test="name1 != null">
+        #{name1,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="banjiId != null">
+        #{banjiId,jdbcType=VARCHAR},
+      </if>
+      <if test="ruxueshijian != null">
+        #{ruxueshijian,jdbcType=VARCHAR},
+      </if>
+      <if test="biyeshijian != null">
+        #{biyeshijian,jdbcType=VARCHAR},
+      </if>
+      <if test="xuezhi != null">
+        #{xuezhi,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexiao != null">
+        #{xuexiao,jdbcType=VARCHAR},
+      </if>
+      <if test="del != null">
+        #{del,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.fc.entity.TStuExample" resultType="java.lang.Long">
+    select count(*) from t_stu
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_stu
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.xuehao != null">
+        xuehao = #{record.xuehao,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name1 != null">
+        name1 = #{record.name1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null">
+        sex = #{record.sex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.age != null">
+        age = #{record.age,jdbcType=VARCHAR},
+      </if>
+      <if test="record.banjiId != null">
+        banji_id = #{record.banjiId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ruxueshijian != null">
+        ruxueshijian = #{record.ruxueshijian,jdbcType=VARCHAR},
+      </if>
+      <if test="record.biyeshijian != null">
+        biyeshijian = #{record.biyeshijian,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xuezhi != null">
+        xuezhi = #{record.xuezhi,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xuexiao != null">
+        xuexiao = #{record.xuexiao,jdbcType=VARCHAR},
+      </if>
+      <if test="record.del != null">
+        del = #{record.del,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_stu
+    set id = #{record.id,jdbcType=INTEGER},
+      xuehao = #{record.xuehao,jdbcType=VARCHAR},
+      name1 = #{record.name1,jdbcType=VARCHAR},
+      sex = #{record.sex,jdbcType=VARCHAR},
+      age = #{record.age,jdbcType=VARCHAR},
+      banji_id = #{record.banjiId,jdbcType=VARCHAR},
+      ruxueshijian = #{record.ruxueshijian,jdbcType=VARCHAR},
+      biyeshijian = #{record.biyeshijian,jdbcType=VARCHAR},
+      xuezhi = #{record.xuezhi,jdbcType=VARCHAR},
+      xuexiao = #{record.xuexiao,jdbcType=VARCHAR},
+      del = #{record.del,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fc.entity.TStu">
+    update t_stu
+    <set>
+      <if test="xuehao != null">
+        xuehao = #{xuehao,jdbcType=VARCHAR},
+      </if>
+      <if test="name1 != null">
+        name1 = #{name1,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        age = #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="banjiId != null">
+        banji_id = #{banjiId,jdbcType=VARCHAR},
+      </if>
+      <if test="ruxueshijian != null">
+        ruxueshijian = #{ruxueshijian,jdbcType=VARCHAR},
+      </if>
+      <if test="biyeshijian != null">
+        biyeshijian = #{biyeshijian,jdbcType=VARCHAR},
+      </if>
+      <if test="xuezhi != null">
+        xuezhi = #{xuezhi,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexiao != null">
+        xuexiao = #{xuexiao,jdbcType=VARCHAR},
+      </if>
+      <if test="del != null">
+        del = #{del,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fc.entity.TStu">
+    update t_stu
+    set xuehao = #{xuehao,jdbcType=VARCHAR},
+      name1 = #{name1,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      age = #{age,jdbcType=VARCHAR},
+      banji_id = #{banjiId,jdbcType=VARCHAR},
+      ruxueshijian = #{ruxueshijian,jdbcType=VARCHAR},
+      biyeshijian = #{biyeshijian,jdbcType=VARCHAR},
+      xuezhi = #{xuezhi,jdbcType=VARCHAR},
+      xuexiao = #{xuexiao,jdbcType=VARCHAR},
+      del = #{del,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
