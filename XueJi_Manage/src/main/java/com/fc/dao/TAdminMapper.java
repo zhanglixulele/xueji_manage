@@ -21,7 +21,7 @@ public interface TAdminMapper {
 
     List<TAdmin> selectByExample(TAdminExample example);
 
-    TAdmin selectByPrimaryKey(Integer userid);
+    TAdmin selectByPrimaryKey(Long userid);
 
     int updateByExampleSelective(@Param("record") TAdmin record, @Param("example") TAdminExample example);
 
