@@ -2,9 +2,12 @@ package com.fc.dao;
 
 import com.fc.entity.TAdmin;
 import com.fc.entity.TAdminExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
+@Repository
 public interface TAdminMapper {
     long countByExample(TAdminExample example);
 
