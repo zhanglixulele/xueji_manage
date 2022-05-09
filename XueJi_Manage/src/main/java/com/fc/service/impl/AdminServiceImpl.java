@@ -6,70 +6,23 @@ import com.fc.dao.TAdminMapper;
 import com.fc.entity.TAdmin;
 import com.fc.entity.TAdminExample;
 import com.fc.service.AdminService;
-import com.fc.vo.DataVO;
 import com.fc.vo.ResultVo;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 @Transactional
 public class AdminServiceImpl implements AdminService {
     @Autowired
     private TAdminMapper adminMapper;
-
     @Override
-    public ResultVo getList(Integer pageNum, Integer pageSize, Long userId) {
-        //返回给前端的结果
-        ResultVo resultVo;
-
-        DataVO<TAdmin> adminDataVO;
-
-        List<TAdmin> tAdmins;
-
-        if (userId!=null){
-            tAdmins = new ArrayList<>();
-
-            TAdmin admin = adminMapper.selectByPrimaryKey(userId);
-
-            if (admin==null){
-                adminDataVO=new DataVO<>(0L,tAdmins,pageNum,pageSize);
-                resultVo=new ResultVo(4000,"查无此管理员",false,adminDataVO);
-            }else {
-                tAdmins.add(admin);
-
-                adminDataVO = new DataVO<>(1L, tAdmins, pageNum, pageSize);
-
-                resultVo = new ResultVo(1000, "查到了该管理员!", true, adminDataVO);
-            }
-        }else {
-            PageHelper.startPage(pageNum, pageSize);
-
-            tAdmins = adminMapper.selectByExample(null);
-
-            if (tAdmins.size() == 0) {
-                adminDataVO = new DataVO<>(0L, tAdmins, pageNum, pageSize);
-
-                resultVo = new ResultVo(4100, "没有管理员!!!", false, adminDataVO);
-        }else {
-                PageInfo<TAdmin> pageInfo = new PageInfo<>(tAdmins);
-
-                adminDataVO = new DataVO<>(pageInfo.getTotal(), tAdmins, pageNum, pageSize);
-
-                resultVo = new ResultVo(1100, "管理员查询成功！！！!", true, adminDataVO);
-
-            }
-            }
-
-        return resultVo;
-    }
-
-    @Override
-    public ResultVo login(String userName, String userPm) {
+    public ResultVo login(String userName, String userPw) {
         ResultVo vo = new ResultVo();
 
         vo.setCode(-1);
@@ -90,10 +43,11 @@ public class AdminServiceImpl implements AdminService {
             TAdmin admin = admins.get(0);
 
             // 如果密码相同
-            if (admin.getUserpw().equals(userPm)) {
+            if (admin.getUserpw().equals(userPw)) {
                 vo.setSuccess(true);
                 vo.setMessage("登录成功！");
                 vo.setCode(200);
+                vo.setData("yes");
 
                 // 密码不要传给前端
                 admin.setUserpw(null);

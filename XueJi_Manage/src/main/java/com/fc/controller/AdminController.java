@@ -16,13 +16,8 @@ public class AdminController {
 
     @PostMapping("login")
     public ResultVo login(@RequestParam String userName,
-                          @RequestParam String userPm){
-        return adminService.login(userName,userPm);
+                          @RequestParam String userPw){
+        return adminService.login(userName,userPw);
     }
-    @PostMapping("getlist")
-    public ResultVo getlist(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
-                            @RequestParam(value = "pageSize", defaultValue = "3")  Integer pageSize,
-                            Long userId) {
-        return adminService.getList(pageNum, pageSize, userId);
-    }
+
 }

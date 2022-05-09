@@ -3,19 +3,19 @@
 <dwr>
      <allow>
           <create creator="new" javascript="loginService">
-              <param name="class" value="com.service.loginService"></param>
+              <param name="class" value="com.service.loginService"/>
           </create>
           <convert converter="bean" match="com.orm.Tzhuanye">
-              <param name="include" value="id,name"></param>
+              <param name="include" value="id,name"/>
           </convert>
           <convert converter="bean" match="com.orm.Tbanji">
-              <param name="include" value="id,name"></param>
+              <param name="include" value="id,name"/>
           </convert>
           <convert converter="bean" match="com.orm.Tstu">
-              <param name="include" value="id,xuehao"></param>
+              <param name="include" value="id,xuehao"/>
           </convert>
           <convert converter="bean" match="com.orm.Tkecheng">
-              <param name="include" value="id,name"></param>
+              <param name="include" value="id,name"/>
           </convert>
      </allow>
 </dwr>
