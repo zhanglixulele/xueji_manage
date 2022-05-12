@@ -24,7 +24,7 @@ String path = request.getContextPath();
            {
                if(confirm('您确定删除吗？'))
                {
-                   window.location.href="<%=path %>/jiangcheng?type=jiangchengDel&id="+id;
+                   window.location.href="/admin/jiangcheng/jiangchengDel?id="+id;
                }
            }
            function p()
@@ -33,7 +33,7 @@ String path = request.getContextPath();
            }
            function jiangchengAdd()
            {
-                 var url="<%=path %>/admin/jiangcheng/jiangchengAdd.jsp";
+                 var url="/admin/jiangcheng/jiangchengAdd.jsp";
 				 window.location.href=url;
            }
            
@@ -52,7 +52,7 @@ String path = request.getContextPath();
            }
            function callback(data)
            {
-               document.getElementById("indicator").style.display="none";
+               document.gBetElementyId("indicator").style.display="none";
                DWRUtil.addOptions("stu_id",data,"id","xuehao");
            }
        </script>
@@ -70,10 +70,10 @@ String path = request.getContextPath();
 					<td width="20%">备注</td>
 					<td width="20%">操作</td>
 		        </tr>	
-				<c:forEach items="${requestScope.jiangchengList}" var="jiangcheng">
+				<c:forEach items="${requestScope.p}" var="jiangcheng">
 				<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='red';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
 					<td bgcolor="#FFFFFF" align="center">
-						${jiangcheng.stu_xuehao}
+						${jiangcheng.stuId}
 					</td>
 					<td bgcolor="#FFFFFF" align="center">
 						${jiangcheng.shijian}

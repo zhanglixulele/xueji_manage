@@ -1,5 +1,10 @@
 package com.fc.entity;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
+@Repository
+@Component
 public class TJiangcheng {
     private Integer id;
 
