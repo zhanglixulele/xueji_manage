@@ -22,9 +22,9 @@ String path = request.getContextPath();
                <c:if test="${sessionScope.userType==0}">
                    window.location.href="<%=path %>/admin/index.jsp";
                </c:if>
-             /*  <c:if test="${sessionScope.userType==1}">
+               <c:if test="${sessionScope.userType==1}">
                    window.location.href="<%=path %>/ayuangong/index.jsp";
-               </c:if>*/
+               </c:if>
            }
            
            setTimeout(tiao,1300)

@@ -16,9 +16,9 @@ String path = request.getContextPath();
 		<meta http-equiv="description" content="This is my page" />
 
 		<link rel="stylesheet" type="text/css" href="<%=path %>/css/base.css" />
-		 <script type='text/javascript' src='<%=path %>./loginService.js'></script>
-		<script type='text/javascript' src='<%=path %>./engine.js'></script>
-		<script type='text/javascript' src='<%=path %>./util.js'></script>
+		 <script type='text/javascript' src='<%=path %>/dwr/interface/loginService.js'></script>
+		<script type='text/javascript' src='<%=path %>/dwr/engine.js'></script>
+		<script type='text/javascript' src='<%=path %>/dwr/util.js'></script>
         <script language="javascript">
            
            var i=0;

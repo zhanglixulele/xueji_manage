@@ -26,9 +26,9 @@
 
         </style>
 		
-		<script type='text/javascript' src='<%=path %>./loginService.js'></script>
-        <script type='text/javascript' src='<%=path %>./engine.js'></script>
-        <script type='text/javascript' src='<%=path %>./util.js'></script>
+		<script type='text/javascript' src='<%=path %>/dwr/interface/loginService.js'></script>
+        <script type='text/javascript' src='<%=path %>/dwr/engine.js'></script>
+        <script type='text/javascript' src='<%=path %>/dwr/util.js'></script>
         
 		<script language="javascript">
 		function check1()
@@ -63,7 +63,7 @@
 		    }
 		    
 		}
-
+		
 		
 		function reg()
 	    {

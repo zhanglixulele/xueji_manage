@@ -14,7 +14,7 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
-    @PostMapping("login")
+    @PostMapping("loginService")
     public ResultVo login(@RequestParam String userName,
                           @RequestParam String userPw){
         return adminService.login(userName,userPw);
