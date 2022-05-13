@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @MapperScan("com.fc.dao")
 public class XueJiManageApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(XueJiManageApplication.class, args);
     }

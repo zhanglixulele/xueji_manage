@@ -1,7 +1,7 @@
 package com.fc.controller;
 
 import com.fc.service.AdminService;
-import com.fc.vo.ResultVo;
+import com.fc.vo.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +15,7 @@ public class AdminController {
     private AdminService adminService;
 
     @PostMapping("loginService")
-    public ResultVo login(@RequestParam String userName,
+    public ResultVO login(@RequestParam String userName,
                           @RequestParam String userPw){
         return adminService.login(userName,userPw);
     }
