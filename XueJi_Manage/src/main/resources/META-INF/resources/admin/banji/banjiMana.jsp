@@ -22,7 +22,7 @@ String path = request.getContextPath();
            {
                if(confirm('您确定删除吗？'))
                {
-                   window.location.href="<%=path %>/banji?type=banjiDel&id="+id;
+				   window.location.href="banjiDel?id="+id;
                }
            }
            function p()
@@ -31,7 +31,7 @@ String path = request.getContextPath();
            }
            function banjiAdd()
            {
-                 var url="<%=path %>/admin/banji/banjiAdd.jsp";
+                 var url="admin/banji/banjiAdd.jsp";
 				 window.location.href=url;
            }
        </script>
@@ -47,7 +47,7 @@ String path = request.getContextPath();
 					<td width="40%">名称</td>
 					<td width="20%">专业</td>
 					<td width="10%">操作</td>
-		        </tr>	
+		        </tr>
 				<c:forEach items="${requestScope.banjiList}" var="banji" varStatus="ss">
 				<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='red';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
 					<td bgcolor="#FFFFFF" align="center">
@@ -57,7 +57,7 @@ String path = request.getContextPath();
 						${banji.name}
 					</td>
 					<td bgcolor="#FFFFFF" align="center">
-						${banji.zhuanye_name}
+						${banji.zhuanyeId}
 					</td>
 					<td bgcolor="#FFFFFF" align="center">
 						<input type="button" value="删除" onclick="banjiDel(${banji.id})"/>

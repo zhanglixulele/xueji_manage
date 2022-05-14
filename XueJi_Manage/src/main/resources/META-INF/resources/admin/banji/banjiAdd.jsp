@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page isELIgnored="false" %> 
-<%@ taglib uri="http://java.fckeditor.net" prefix="FCK"%>
+<%--<%@ taglib uri="http://java.fckeditor.net" prefix="FCK"%>--%>
 
 <%
 String path = request.getContextPath();
@@ -23,27 +23,27 @@ String path = request.getContextPath();
 		<script type='text/javascript' src='<%=path %>/dwr/engine.js'></script>
 		<script type='text/javascript' src='<%=path %>/dwr/util.js'></script>
         <script language="javascript">
-           var i=0;
-           function zhuanyeAll()
-           {
-               if(i==0)
-               {
-                   document.getElementById("indicator").style.display="block";
-                   loginService.zhuanyeAll(callback);
-                   i=1;
-               }
-               
-           }
+           // var i=0;
+		   // function zhuanyeAll()
+           // {
+           //     if(i==0)
+           //     {
+           //         document.getElementById("indicator").style.display="block";
+           //         loginService.zhuanyeAll(callback);
+           //         i=1;
+           //     }
+		   //
+           // }
            function callback(data)
            {
                document.getElementById("indicator").style.display="none";
-               DWRUtil.addOptions("zhuanye_id",data,"id","name");
+               DWRUtil.addOptions("zhuanyeId",data,"id","name");
            }
            
            function check()
            {
                if(document.formAdd.zhuanye_id.value==0)
-               { 
+               {
                    alert("请选择专业");
                    return false;
                }
@@ -53,7 +53,7 @@ String path = request.getContextPath();
 	</head>
 
 	<body leftmargin="2" topmargin="9" background='<%=path %>/img/allbg.gif'>
-			<form action="<%=path %>/banji?type=banjiAdd" name="formAdd" method="post">
+			<form action="/banjiAdd?type=banjiAdd" name="formAdd" method="post">
 				     <table width="98%" align="center" border="0" cellpadding="4" cellspacing="1" bgcolor="#CBD8AC" style="margin-bottom:8px">
 						<tr bgcolor="#E7E7E7">
 						     <td height="14" colspan="100" background="<%=path %>/img/tbg.gif">&nbsp;&nbsp;</td>
@@ -72,10 +72,14 @@ String path = request.getContextPath();
 						    </td>
 						    <td width="75%" bgcolor="#FFFFFF" align="left">
 						        <table border="0">
-							           <tr> 
-							               <td>  
-							                  <select name="zhuanye_id" id="zhuanye_id" onclick="zhuanyeAll()" style="width: 140px;">
+							           <tr>
+							               <td>
+							                  <select name="zhuanyeId" id="zhuanye_id" onclick="zhuanyeAll()" style="width: 140px;">
 									              <option value="0">请选择专业</option>
+												  <option value="1">通信工程专业</option>
+												  <option value="2">信息工程专业</option>
+												  <option value="3">计算机专业</option>
+												  <option value="4">软件与信息服务专业</option>
 									          </select>
 							               </td>
 							               <td>

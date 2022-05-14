@@ -1,8 +1,8 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ page isELIgnored="false" %> 
-<%@ taglib uri="http://java.fckeditor.net" prefix="FCK"%>
+<%@ page isELIgnored="false" %>
+<%--<%@ taglib uri="http://java.fckeditor.net" prefix="FCK"%>--%>
 
 <%
 String path = request.getContextPath();
@@ -24,7 +24,7 @@ String path = request.getContextPath();
 	</head>
 
 	<body leftmargin="2" topmargin="9" background='<%=path %>/img/allbg.gif'>
-			<form action="<%=path %>/zhuanye?type=zhuanyeAdd" name="formAdd" method="post">
+			<form action="/zhuanyeAdd?type=zhuanyeAdd" name="formAdd" method="post">
 				     <table width="98%" align="center" border="0" cellpadding="4" cellspacing="1" bgcolor="#CBD8AC" style="margin-bottom:8px">
 						<tr bgcolor="#E7E7E7">
 						     <td height="14" colspan="100" background="<%=path %>/img/tbg.gif">&nbsp;&nbsp;</td>

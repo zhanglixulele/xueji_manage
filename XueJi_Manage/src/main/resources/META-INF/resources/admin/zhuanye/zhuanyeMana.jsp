@@ -22,13 +22,13 @@ String path = request.getContextPath();
            {
                if(confirm('您确定删除吗？'))
                {
-                   window.location.href="<%=path %>/zhuanye?type=zhuanyeDel&id="+id;
+                   window.location.href="zhuanyeDel?id="+id;
                }
            }
            
            function zhuanyeAdd()
            {
-                 var url="<%=path %>/admin/zhuanye/zhuanyeAdd.jsp";
+                 var url="admin/zhuanye/zhuanyeAdd.jsp";
 				 window.location.href=url;
            }
            
@@ -47,6 +47,7 @@ String path = request.getContextPath();
 				<tr align="center" bgcolor="#FAFAF1" height="22">
 				    <td width="5%">序号</td>
 					<td width="40%">名称</td>
+					<td width="20%">介绍</td>
 					<td width="10%">操作</td>
 		        </tr>	
 				<c:forEach items="${requestScope.zhuanyeList}" var="zhuanye" varStatus="ss">
@@ -56,6 +57,9 @@ String path = request.getContextPath();
 					</td>
 					<td bgcolor="#FFFFFF" align="center">
 						${zhuanye.name}
+					</td>
+					<td bgcolor="#FFFFFF" align="center">
+							${zhuanye.jieshao}
 					</td>
 					<td bgcolor="#FFFFFF" align="center">
 						<input type="button" value="删除" onclick="zhuanyeDel(${zhuanye.id})"/>
