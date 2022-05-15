@@ -17,7 +17,20 @@ public class AdminController {
     @PostMapping("loginService")
     public ResultVO login(@RequestParam String userName,
                           @RequestParam String userPw){
-        return adminService.login(userName,userPw);
-    }
 
+
+        return adminService.login(userName,userPw);
+
+    }
+    @PostMapping("loginService1")
+    public String login1(@RequestParam String userName,
+                          @RequestParam String userPw){
+        //在这里写逻辑
+
+
+
+        System.out.println(111111);
+        return "admin/adminMana.jsp";
+
+    }
 }
