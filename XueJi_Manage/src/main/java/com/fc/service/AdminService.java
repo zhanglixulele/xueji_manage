@@ -1,12 +1,12 @@
 package com.fc.service;
 
-import com.fc.vo.ResultVo;
+import com.fc.vo.ResultVO;
 import org.springframework.stereotype.Service;
 
 @Service
 public interface AdminService {
 
-    ResultVo login(String userName, String userPm);
+    ResultVO login(String userName, String userPm);
 
 
 }
