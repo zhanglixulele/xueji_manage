@@ -76,7 +76,7 @@
 
 	<body>
 		<div id="Layer1" style="position:absolute; left:550px; top:247px; width:360px; height:131px; z-index:1">
-			<form action="/admin/loginService1" name="ThisForm" method="post">
+			<form action="/admin/loginService" name="ThisForm" method="post">
 <%--			<form action="/src/main/webapp/admin/loginService1" name="ThisForm" method="post">--%>
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
 					<tr>
