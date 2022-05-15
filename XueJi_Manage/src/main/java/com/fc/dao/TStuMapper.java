@@ -2,8 +2,9 @@ package com.fc.dao;
 
 import com.fc.entity.TStu;
 import com.fc.entity.TStuExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface TStuMapper {
     long countByExample(TStuExample example);

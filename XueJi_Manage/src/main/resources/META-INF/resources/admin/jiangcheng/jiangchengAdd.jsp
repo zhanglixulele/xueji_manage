@@ -55,7 +55,7 @@ String path = request.getContextPath();
 	</head>
 
 	<body leftmargin="2" topmargin="9" background='<%=path %>/img/allbg.gif'>
-			<form action="<%=path %>/jiangcheng?type=jiangchengAdd" name="formAdd" method="post">
+			<form action="<%=path %>/admin/jiangcheng/jiangchengAdd" name="formAdd" method="post">
 				     <table width="98%" align="center" border="0" cellpadding="4" cellspacing="1" bgcolor="#CBD8AC" style="margin-bottom:8px">
 						<tr bgcolor="#E7E7E7">
 						     <td height="14" colspan="100" background="<%=path %>/img/tbg.gif">&nbsp;&nbsp;</td>
@@ -67,14 +67,10 @@ String path = request.getContextPath();
 						    <td width="75%" bgcolor="#FFFFFF" align="left">
 						        <table border="0">
 							           <tr> 
-							               <td>  
-							                  <select name="stu_id" id="stu_id" onclick="stuAll()" style="width: 140px;">
-									              <option value="0">请选择学生</option>
-									          </select>
-							               </td>
 							               <td>
-							                  <img id="indicator" src="<%=path %>/img/loading.gif" style="display:none"/>
+											   <input type="text" name="stuId" style="width: 140px;"/>
 							               </td>
+
 							           </tr>
 							    </table>
 						    </td>

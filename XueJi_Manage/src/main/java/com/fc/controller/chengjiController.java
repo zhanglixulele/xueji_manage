@@ -1,6 +1,8 @@
 package com.fc.controller;
 
+import com.fc.entity.TChengji;
 import com.fc.entity.TJiangcheng;
+import com.fc.service.ChengjiService;
 import com.fc.service.JiangChengService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,25 +14,25 @@ import java.util.List;
 
 @RestController
 @RequestMapping("admin")
-public class jiangchengController {
+public class chengjiController {
     @Autowired
-    private JiangChengService jiangChengService;
+    private ChengjiService chengjiService;
 
-    @GetMapping("jiangcheng")
+    @GetMapping("chengji")
     public ModelAndView getList(ModelAndView modelAndView,
                                 HttpServletResponse response,
                                 HttpServletRequest request){
-        List<TJiangcheng> jj = jiangChengService.getAll();
+        List<TChengji> jj = chengjiService.getAll();
         request.setAttribute("p",jj);
-        modelAndView.setViewName("forward:jiangcheng/jiangchengMana.jsp");
+        modelAndView.setViewName("forward:chengji/chengjiMana.jsp");
         return modelAndView;
     }
 
-    @GetMapping("jiangcheng/jiangchengDel")
-    public ModelAndView jiangchengDel(@RequestParam int id){
-        return jiangChengService.jiangchengDel(id);
+    @GetMapping("chengji/chengjiDel")
+    public ModelAndView chengjiDel(@RequestParam int id){
+        return chengjiService.chengjiDel(id);
     }
 
-    @PostMapping("jiangcheng/jiangchengAdd")
-    public ModelAndView jiangchengAdd(TJiangcheng jiangcheng){return jiangChengService.add(jiangcheng);}
+    @PostMapping("chengji/chengjiAdd")
+    public ModelAndView chengjiAdd(TChengji chengji){return chengjiService.add(chengji);}
 }

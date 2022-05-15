@@ -22,7 +22,7 @@ String path = request.getContextPath();
            {
                if(confirm('您确定删除吗？'))
                {
-                   window.location.href="<%=path %>/chengji?type=chengjiDel&id="+id;
+                   window.location.href="/admin/chengji/chengjiDel?id="+id;
                }
            }
            function p()
@@ -49,13 +49,13 @@ String path = request.getContextPath();
 					<td width="20%">学年</td>
 					<td width="20%">操作</td>
 		        </tr>	
-				<c:forEach items="${requestScope.chengjiList}" var="chengji">
+				<c:forEach items="${requestScope.p}" var="chengji">
 				<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='red';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
 					<td bgcolor="#FFFFFF" align="center">
-						${chengji.stu_xuehao}
+						${chengji.stuId}
 					</td>
 					<td bgcolor="#FFFFFF" align="center">
-						${chengji.kecheng_name}
+						${chengji.kechengId}
 					</td>
 					<td bgcolor="#FFFFFF" align="center">
 						${chengji.chengji}

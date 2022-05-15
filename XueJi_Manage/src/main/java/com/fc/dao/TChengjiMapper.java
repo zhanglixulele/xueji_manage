@@ -2,9 +2,13 @@ package com.fc.dao;
 
 import com.fc.entity.TChengji;
 import com.fc.entity.TChengjiExample;
-import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+@Repository
+@Mapper
 public interface TChengjiMapper {
     long countByExample(TChengjiExample example);
 

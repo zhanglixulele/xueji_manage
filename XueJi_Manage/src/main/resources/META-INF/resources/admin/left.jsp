@@ -232,7 +232,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																	onMouseOver="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#adb9c2'; "
 																	onmouseout="this.style.backgroundImage='url()';this.style.borderStyle='none'">
 																	<span class="STYLE2">
-																	    <a href='<%=path %>/chengji?type=chengjiMana' target='I2'>成绩信息管理</a>
+																	    <a href='<%=path %>/admin/chengji' target='I2'>成绩信息管理</a>
 																	</span>
 																</td>
 															</tr>

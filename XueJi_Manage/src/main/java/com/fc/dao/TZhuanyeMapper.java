@@ -2,8 +2,9 @@ package com.fc.dao;
 
 import com.fc.entity.TZhuanye;
 import com.fc.entity.TZhuanyeExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface TZhuanyeMapper {
     long countByExample(TZhuanyeExample example);
