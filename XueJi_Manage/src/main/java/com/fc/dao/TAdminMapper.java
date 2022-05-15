@@ -9,6 +9,13 @@ import java.util.List;
 
 @Repository
 public interface TAdminMapper {
+    static TAdmin getAdminById(Integer id) {
+        return null;
+    }
+
+    static void update(TAdmin admin) {
+    }
+
     long countByExample(TAdminExample example);
 
     int deleteByExample(TAdminExample example);

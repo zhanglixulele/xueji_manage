@@ -47,7 +47,7 @@ String path = request.getContextPath();
 	</head>
 
 	<body leftmargin="2" topmargin="9" background='<%=path %>/src/main/webapp/img/allbg.gif'>
-			<form method="post" action="<%=path %>/userPwEdit.action" name="formPw">
+			<form method="post" action="/admin/userinfo" name="formPw">
 			<table width="98%" align="center" border="0" cellpadding="4" cellspacing="1" bgcolor="#CBD8AC" style="margin-bottom:8px">
 				<tr bgcolor="#EEF4EA">
 				    <td colspan="2" background="<%=path %>/src/main/webapp/img/main/webapp/img/wbg.gif" class='title'><span>密码修改</span></td>
