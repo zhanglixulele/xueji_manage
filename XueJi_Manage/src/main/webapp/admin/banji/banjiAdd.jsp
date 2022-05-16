@@ -17,33 +17,33 @@ String path = request.getContextPath();
 		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3" />
 		<meta http-equiv="description" content="This is my page" />
         
-        <link rel="stylesheet" type="text/css" href="<%=path %>/src/main/webapp/css/main/webapp/css/base.css" />
+        <link rel="stylesheet" type="text/css" href="<%=path %>/css/base.css" />
         
         <script type='text/javascript' src='<%=path %>/dwr/interface/loginService.js'></script>
 		<script type='text/javascript' src='<%=path %>/dwr/engine.js'></script>
 		<script type='text/javascript' src='<%=path %>/dwr/util.js'></script>
         <script language="javascript">
-           var i=0;
-           function zhuanyeAll()
-           {
-               if(i==0)
-               {
-                   document.getElementById("indicator").style.display="block";
-                   loginService.zhuanyeAll(callback);
-                   i=1;
-               }
-               
-           }
+           // var i=0;
+		   // function zhuanyeAll()
+           // {
+           //     if(i==0)
+           //     {
+           //         document.getElementById("indicator").style.display="block";
+           //         loginService.zhuanyeAll(callback);
+           //         i=1;
+           //     }
+		   //
+           // }
            function callback(data)
            {
                document.getElementById("indicator").style.display="none";
-               DWRUtil.addOptions("zhuanye_id",data,"id","name");
+               DWRUtil.addOptions("zhuanyeId",data,"id","name");
            }
            
            function check()
            {
                if(document.formAdd.zhuanye_id.value==0)
-               { 
+               {
                    alert("请选择专业");
                    return false;
                }
@@ -52,11 +52,11 @@ String path = request.getContextPath();
         </script>
 	</head>
 
-	<body leftmargin="2" topmargin="9" background='<%=path %>/src/main/webapp/img/allbg.gif'>
-			<form action="<%=path %>/banji?type=banjiAdd" name="formAdd" method="post">
+	<body leftmargin="2" topmargin="9" background='<%=path %>/img/allbg.gif'>
+			<form action="/banjiAdd?type=banjiAdd" name="formAdd" method="post">
 				     <table width="98%" align="center" border="0" cellpadding="4" cellspacing="1" bgcolor="#CBD8AC" style="margin-bottom:8px">
 						<tr bgcolor="#E7E7E7">
-						     <td height="14" colspan="100" background="<%=path %>/src/main/webapp/img/tbg.gif">&nbsp;&nbsp;</td>
+						     <td height="14" colspan="100" background="<%=path %>/img/tbg.gif">&nbsp;&nbsp;</td>
 						</tr>
 						<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='red';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
 						    <td width="25%" bgcolor="#FFFFFF" align="right">
@@ -72,14 +72,18 @@ String path = request.getContextPath();
 						    </td>
 						    <td width="75%" bgcolor="#FFFFFF" align="left">
 						        <table border="0">
-							           <tr> 
-							               <td>  
-							                  <select name="zhuanye_id" id="zhuanye_id" onclick="zhuanyeAll()" style="width: 140px;">
+							           <tr>
+							               <td>
+							                  <select name="zhuanyeId" id="zhuanye_id" onclick="zhuanyeAll()" style="width: 140px;">
 									              <option value="0">请选择专业</option>
+												  <option value="1">通信工程专业</option>
+												  <option value="2">信息工程专业</option>
+												  <option value="3">计算机专业</option>
+												  <option value="4">软件与信息服务专业</option>
 									          </select>
 							               </td>
 							               <td>
-							                  <img id="indicator" src="<%=path %>/src/main/webapp/img/main/webapp/img/loading.gif" style="display:none"/>
+							                  <img id="indicator" src="<%=path %>/img/loading.gif" style="display:none"/>
 							               </td>
 							           </tr>
 							    </table>

@@ -2,10 +2,11 @@ package com.fc.dao;
 
 import com.fc.entity.TZhuanye;
 import com.fc.entity.TZhuanyeExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TZhuanyeMapper {
     long countByExample(TZhuanyeExample example);
 

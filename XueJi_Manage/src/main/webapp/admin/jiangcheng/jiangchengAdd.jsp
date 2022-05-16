@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page isELIgnored="false" %> 
-<%--<%@ taglib uri="http://java.fckeditor.net" prefix="FCK"%>--%>
+<%@ taglib uri="http://java.fckeditor.net" prefix="FCK"%>
 
 <%
 String path = request.getContextPath();

@@ -2,10 +2,11 @@ package com.fc.dao;
 
 import com.fc.entity.TBanji;
 import com.fc.entity.TBanjiExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TBanjiMapper {
     long countByExample(TBanjiExample example);
 
