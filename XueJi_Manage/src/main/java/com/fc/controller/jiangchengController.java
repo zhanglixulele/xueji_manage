@@ -34,8 +34,6 @@ public class jiangchengController {
         return jiangChengService.jiangchengDel(id);
     }
 
-
-
-
-
+    @PostMapping("jiangcheng/jiangchengAdd")
+    public ModelAndView jiangchengAdd(TJiangcheng jiangcheng){return jiangChengService.add(jiangcheng);}
 }

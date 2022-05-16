@@ -2,8 +2,9 @@ package com.fc.dao;
 
 import com.fc.entity.TKecheng;
 import com.fc.entity.TKechengExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface TKechengMapper {
     long countByExample(TKechengExample example);

@@ -34,6 +34,18 @@ public class jiangchengServiceImpl  implements JiangChengService {
         return mv;
     }
 
+    @Override
+    public ModelAndView add(TJiangcheng jiangcheng) {
+        ModelAndView mv =new ModelAndView();
+        int affectedRows = jiangchengDao.insertSelective(jiangcheng);
+        if (affectedRows>0) {
+            mv.setViewName("redirect:/admin/jiangcheng");
+        }else {
+            System.out.println("失败");
+
+        }
+        return mv;
+    }
 
 
 }

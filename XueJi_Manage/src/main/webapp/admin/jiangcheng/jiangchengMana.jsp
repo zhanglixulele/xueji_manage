@@ -106,11 +106,9 @@ String path = request.getContextPath();
 			       <td>  
 	                  <select name="stu_id" id="stu_id" onclick="stuAll()">
 			              <option value="0">请选择学生</option>
+
 			          </select>
-			          <select name="shuxing">
-			               <option value="奖励">奖励</option>
-			               <option value="惩罚">惩罚</option>
-			          </select>
+
 			          <input type="submit" value="查询"/>
 			          <img id="indicator" src="<%=path %>/src/main/webapp/img/main/webapp/img/loading.gif" style="display:none"/>
 	               </td>

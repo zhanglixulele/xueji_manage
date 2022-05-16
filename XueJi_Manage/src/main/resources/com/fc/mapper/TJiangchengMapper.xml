@@ -108,7 +108,7 @@
       #{shuxing,jdbcType=VARCHAR}, #{beizhu,jdbcType=VARCHAR}, #{del,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.fc.entity.TJiangcheng">
+  <insert id="insertSelective" keyProperty="stuId" useGeneratedKeys="true" parameterType="com.fc.entity.TJiangcheng">
     insert into t_jiangcheng
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
