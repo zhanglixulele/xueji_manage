@@ -110,7 +110,7 @@ String path = request.getContextPath();
 			          </select>
 
 			          <input type="submit" value="查询"/>
-			          <img id="indicator" src="<%=path %>/img/loading.gif" style="display:none"/>
+			          <img id="indicator" src="/img/loading.gif" style="display:none"/>
 	               </td>
 			  </tr>
 		    </table>
