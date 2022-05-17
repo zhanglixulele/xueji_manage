@@ -8,7 +8,9 @@ import com.fc.vo.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.DigestUtils;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @Service
@@ -35,6 +37,19 @@ public class AdminServiceImpl implements AdminService {
         }
 
         return vo;
+    }
+    @Override
+    public String update(TAdmin admin){
+        Integer id = admin.getUserid();
+        TAdmin result=TAdminMapper.getAdminById(id);
+        if (result!=null){
+            String pwd = DigestUtils.md5DigestAsHex(admin.getUserpw().getBytes(StandardCharsets.UTF_8));
+            admin.setUserpw(pwd);
+            TAdminMapper.update(admin);
+            return "修改成功";
+        }else {
+            return "修改失败";
+        }
     }
 }
 

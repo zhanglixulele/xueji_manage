@@ -1,5 +1,6 @@
 package com.fc.controller;
 
+import com.fc.entity.TAdmin;
 import com.fc.service.AdminService;
 import com.fc.vo.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,6 +84,10 @@ public class AdminController {
             mv.setViewName("redirect:/login.jsp");
             return mv;
         }
+    @GetMapping("userinfo")
+    public String update(TAdmin admin){
+        return adminService.update(admin);
+    }
     }
 
 
