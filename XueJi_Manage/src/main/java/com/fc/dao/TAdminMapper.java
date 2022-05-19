@@ -9,12 +9,12 @@ import java.util.List;
 
 @Repository
 public interface TAdminMapper {
-    static void update(TAdmin admin) {
-    }
-
-    static TAdmin getAdminById(Integer id) {
-        return null;
-    }
+//    static void update(TAdmin admin) {
+//    }
+//
+//    static TAdmin getAdminById(Integer id) {
+//        return null;
+//    }
 
     long countByExample(TAdminExample example);
 
@@ -28,7 +28,9 @@ public interface TAdminMapper {
 
     List<TAdmin> selectByExample(TAdminExample example);
 
-    TAdmin selectByPrimaryKey(Long userid);
+    TAdmin selectByPrimaryKey(Integer userid);
+
+    TAdmin selectByPrimaryName(String username);
 
     int updateByExampleSelective(@Param("record") TAdmin record, @Param("example") TAdminExample example);
 

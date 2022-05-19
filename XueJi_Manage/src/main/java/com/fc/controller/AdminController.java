@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -38,29 +39,39 @@ public class AdminController {
                 ModelAndView mv){
             //在这里写逻辑
             ResultVO vo = adminService.login(userName, userPw);
-
+            System.out.println(vo.getCode());
             if (vo.getCode()==0){
+                System.out.println("777");
                 //登录失败
                 mv.addObject("resultInfo",vo);
 
                 mv.setViewName("forward:/login.jsp");
             }else {
+                System.out.println("666");
                 //登录成功
                 session.setAttribute("admin",vo.getData());
 
                 Cookie cookie;
                 if (remember!=null&&remember==1){
+                    System.out.println("111111");
                     cookie = new Cookie("JSESSIONID", session.getId());
-
+                    session.setAttribute("userName",userName);
+                    session.setAttribute("userPw",userPw);
                     cookie.setMaxAge(30 * 60);
                 }else {
                     cookie = new Cookie("JSESSIONID", null);
-
+                    System.out.println("2222");
+                    session.setAttribute("userName",userName);
+                    session.setAttribute("userPw",userPw);
                     cookie.setMaxAge(-1);
                 }
                 response.addCookie(cookie);
 
                 mv.setViewName("forward:/admin/left.jsp");
+            }
+            System.out.println("登录成功");
+            if(session.getAttribute("userName")!=null){
+                System.out.println("session is have");
             }
             return mv;
         }
@@ -84,9 +95,19 @@ public class AdminController {
             mv.setViewName("redirect:/login.jsp");
             return mv;
         }
-    @GetMapping("userinfo")
-    public String update(TAdmin admin){
-        return adminService.update(admin);
+//    @PostMapping("userinfo")
+    @RequestMapping("userinfo")
+    public String update(TAdmin admin, HttpSession session, HttpServletRequest request){
+        System.out.println("controller .....");
+//        return adminService.update(admin,session);
+        String userName = (String)session.getAttribute("userName");
+//        String userName = (String)session.getAttribute("userName");
+admin.setUsername(userName);
+        String update = adminService.update(admin, session,request);
+        if (update==null){
+            return null;
+        }
+        return "userinfo/userPw.jsp";
     }
     }
 
