@@ -15,7 +15,7 @@ String path = request.getContextPath();
 		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3" />
 		<meta http-equiv="description" content="This is my page" />
         
-        <link rel="stylesheet" type="text/css" href="<%=path %>/src/main/webapp/css/main/webapp/css/base.css" />
+        <link rel="stylesheet" type="text/css" href="<%=path %>/css/base.css" />
         
         <script type='text/javascript' src='<%=path %>/dwr/interface/loginService.js'></script>
 		<script type='text/javascript' src='<%=path %>/dwr/engine.js'></script>
@@ -50,11 +50,11 @@ String path = request.getContextPath();
         </script>
 	</head>
 
-	<body leftmargin="2" topmargin="9" background='<%=path %>/src/main/webapp/img/allbg.gif'>
-			<form action="<%=path %>/stu?type=stuAdd" name="formAdd" method="post">
+	<body leftmargin="2" topmargin="9" background='<%=path %>/img/allbg.gif'>
+			<form action="<%=path %>/admin/stu/stuAdd" name="formAdd" method="post">
 				     <table width="98%" align="center" border="0" cellpadding="4" cellspacing="1" bgcolor="#CBD8AC" style="margin-bottom:8px">
 						<tr bgcolor="#EEF4EA">
-					        <td colspan="3" background="<%=path %>/src/main/webapp/img/main/webapp/img/wbg.gif" class='title'><span>学生录入</span></td>
+					        <td colspan="3" background="<%=path %>/img/wbg.gif" class='title'><span>学生录入</span></td>
 					    </tr>
 						<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='red';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
 						    <td width="25%" bgcolor="#FFFFFF" align="right">
@@ -99,12 +99,10 @@ String path = request.getContextPath();
 						         <table border="0">
 							           <tr> 
 							               <td>  
-							                  <select name="banji_id" id="banji_id" onclick="banjiAll()" style="width: 130px;">
-									              <option value="0">请选择班级</option>
-									          </select>
+							                  <input type="text" name="kechenhId" style="width: 140px">
 							               </td>
 							               <td>
-							                  <img id="indicator" src="<%=path %>/src/main/webapp/img/main/webapp/img/loading.gif" style="display:none"/>
+							                  <img id="indicator" src="<%=path %>/img/loading.gif" style="display:none"/>
 							               </td>
 							           </tr>
 							    </table>

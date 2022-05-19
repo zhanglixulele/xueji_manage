@@ -92,7 +92,7 @@ String path = request.getContextPath();
 						        <table border="0">
 							           <tr> 
 							               <td>
-											   <input type="text" name="kechengId" style="width: 140px;"/>
+											   <input type="text" name="kechengI0d" style="width: 140px;"/>
 							               </td>
 							           </tr>
 							    </table>

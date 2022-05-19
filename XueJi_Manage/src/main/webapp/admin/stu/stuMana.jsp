@@ -15,7 +15,7 @@ String path = request.getContextPath();
 		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3" />
 		<meta http-equiv="description" content="This is my page" />
 
-		<link rel="stylesheet" type="text/css" href="<%=path %>/src/main/webapp/css/main/webapp/css/base.css" />
+		<link rel="stylesheet" type="text/css" href="<%=path %>/css/base.css" />
 		 <script type='text/javascript' src='<%=path %>/dwr/interface/loginService.js'></script>
 		<script type='text/javascript' src='<%=path %>/dwr/engine.js'></script>
 		<script type='text/javascript' src='<%=path %>/dwr/util.js'></script>
@@ -24,7 +24,7 @@ String path = request.getContextPath();
            {
                if(confirm('您确定删除吗？'))
                {
-                   window.location.href="<%=path %>/stu?type=stuDel&id="+id;
+                   window.location.href="/admin/stu/stuDel?id="+id;
                }
            }
            
@@ -68,10 +68,10 @@ String path = request.getContextPath();
        </script>
 	</head>
 
-	<body leftmargin="2" topmargin="2" background='<%=path %>/src/main/webapp/img/allbg.gif'>
+	<body leftmargin="2" topmargin="2" background='<%=path %>/img/allbg.gif'>
 			<table width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
 				<tr bgcolor="#E7E7E7">
-					<td height="14" colspan="10" background="<%=path %>/src/main/webapp/img/tbg.gif">&nbsp;学生学籍管理&nbsp;</td>
+					<td height="14" colspan="10" background="<%=path %>/img/tbg.gif">&nbsp;学生学籍管理&nbsp;</td>
 				</tr>
 				<tr align="center" bgcolor="#FAFAF1" height="22">
 					<td width="10%">学号</td>
@@ -90,7 +90,7 @@ String path = request.getContextPath();
 		               <td colspan="10" align="center" style="color: red">学生不存在。请重新查询</td>
 		            </tr>
 		        </c:if>
-				<c:forEach items="${requestScope.stuList}" var="stu">
+				<c:forEach items="${requestScope.p}" var="stu">
 				<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='red';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
 					<td bgcolor="#FFFFFF" align="center">
 						<a href="<%=path %>/stu?type=stuDetail&id=${stu.id}">${stu.xuehao}</a>
@@ -105,7 +105,7 @@ String path = request.getContextPath();
 						${stu.age}
 					</td>
 					<td bgcolor="#FFFFFF" align="center">
-						${stu.banji_name}
+						${stu.banjiId}
 					</td>
 					<td bgcolor="#FFFFFF" align="center">
 					    ${stu.ruxueshijian}
@@ -120,19 +120,20 @@ String path = request.getContextPath();
 					    ${stu.xuexiao}
 					</td>
 					<td bgcolor="#FFFFFF" align="center">
-					    <form action="<%=path %>/src/main/webapp/adminain/webapp/admin/stu/stuEditPre.jsp" method="post">
+					    <form action="<%=path %>/admin/stu/stuEditPre.jsp" method="post">
 						    <input type="button" value="删除" onclick="stuDel(${stu.id})" class="pn-loperator"/>
 						    <input type="hidden" name="id" value="${stu.id}"/>
 						    <input type="hidden" name="xuehao" value="${stu.xuehao}"/>
 						    <input type="hidden" name="name1" value="${stu.name1}"/>
 						    <input type="hidden" name="sex" value="${stu.sex}"/>
 						    <input type="hidden" name="age" value="${stu.age}"/>
-						    <input type="hidden" name="banji_name" value="${stu.banji_name}"/>
+						    <input type="hidden" name="banji_id" value="${stu.banjiId}"/>
 						    <input type="hidden" name="ruxueshijian" value="${stu.ruxueshijian}"/>
 						    <input type="hidden" name="biyeshijian" value="${stu.biyeshijian}"/>
 						    <input type="hidden" name="xuezhi" value="${stu.xuezhi}"/>
 						    <input type="hidden" name=xuexiao value="${stu.xuexiao}"/>
 						    <input type="submit" value="修改"/>
+
 						</form>
 					</td>
 				</tr>
@@ -149,28 +150,6 @@ String path = request.getContextPath();
 			</table>
 			<br/>
 			
-			<table width='98%'  border='0'style="margin-top:8px;margin-left: 5px;">
-			  <tr>
-			    <td>
-			         <form action="<%=path %>/stu?type=stuSearchByXuehao" name="form11" method="post">
-			                         学号：
-			             <input type="text" name="xuehao" style="width: 130px;"/>
-			             <input type="submit" value="查询" onclick="return check1()"/>
-			         </form>
-			    </td>
-			  </tr>
-			  <tr>
-			    <td>
-			         <form action="<%=path %>/stu?type=stuTongji" name="fomr1" method="post">
-			                班级： 
-		                  <select name="banji_id" id="banji_id" onclick="banjiAll()" style="width: 136px;">
-				              <option value="0">请选择班级</option>
-				          </select>
-				          <input type="submit" value="统计"/>
-				          <img id="indicator" src="<%=path %>/src/main/webapp/img/main/webapp/img/loading.gif" style="display:none"/>
-			         </form>
-			    </td>
-			  </tr>
-		    </table>
+
 	</body>
 </html>

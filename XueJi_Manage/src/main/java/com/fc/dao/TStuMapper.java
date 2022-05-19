@@ -2,10 +2,13 @@ package com.fc.dao;
 
 import com.fc.entity.TStu;
 import com.fc.entity.TStuExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
+@Mapper
 public interface TStuMapper {
     long countByExample(TStuExample example);
 
@@ -28,4 +31,5 @@ public interface TStuMapper {
     int updateByPrimaryKeySelective(TStu record);
 
     int updateByPrimaryKey(TStu record);
+
 }

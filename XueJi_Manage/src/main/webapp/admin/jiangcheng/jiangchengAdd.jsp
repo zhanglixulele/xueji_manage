@@ -96,7 +96,7 @@ String path = request.getContextPath();
 						</tr>
 						<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='red';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
 						    <td width="15%" bgcolor="#FFFFFF" align="right">
-						        奖惩备注：
+						        奖惩备注:
 						    </td>
 						    <td width="85%" bgcolor="#FFFFFF" align="left">
 						        <input type="text" name="beizhu" style="width: 140px;"/>

@@ -15,14 +15,14 @@ String path = request.getContextPath();
 		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3" />
 		<meta http-equiv="description" content="This is my page" />
 
-		<link rel="stylesheet" type="text/css" href="<%=path %>/src/main/webapp/css/main/webapp/css/base.css" />
+		<link rel="stylesheet" type="text/css" href="<%=path %>/css/base.css" />
 		
         <script language="javascript">
            function kechengDel(id)
            {
                if(confirm('您确定删除吗？'))
                {
-                   window.location.href="<%=path %>/kecheng?type=kechengDel&id="+id;
+                   window.location.href="/admin/kecheng/kechengDel?id="+id;
                }
            }
            function p()
@@ -31,23 +31,24 @@ String path = request.getContextPath();
            }
            function kechengAdd()
            {
-                 var url="<%=path %>/admin/kecheng/kechengAdd.jsp";
+                 var url="/admin/kecheng/kechengAdd.jsp";
 				 window.location.href=url;
            }
        </script>
 	</head>
 
-	<body leftmargin="2" topmargin="2" background='<%=path %>/src/main/webapp/img/allbg.gif'>
+	<body leftmargin="2" topmargin="2" background='<%=path %>/img/allbg.gif'>
 			<table width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
 				<tr bgcolor="#E7E7E7">
-				     <td height="14" colspan="100" background="<%=path %>/src/main/webapp/img/tbg.gif">&nbsp;&nbsp;</td>
+
+				     <td height="14" colspan="100" background="<%=path %>/img/tbg.gif">&nbsp;&nbsp;</td>
 				</tr>
 				<tr align="center" bgcolor="#FAFAF1" height="22">
 					<td width="5%">序号</td>
 					<td width="40%">名称</td>
 					<td width="10%">操作</td>
 		        </tr>	
-				<c:forEach items="${requestScope.kechengList}" var="kecheng" varStatus="ss">
+				<c:forEach items="${requestScope.p}" var="kecheng" varStatus="ss">
 				<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='red';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
 					<td bgcolor="#FFFFFF" align="center">
 						${ss.index+1}

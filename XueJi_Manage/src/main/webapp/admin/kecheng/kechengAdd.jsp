@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page isELIgnored="false" %> 
-<%@ taglib uri="http://java.fckeditor.net" prefix="FCK"%>
+<%--<%@ taglib uri="http://java.fckeditor.net" prefix="FCK"%>--%>
 
 <%
 String path = request.getContextPath();
@@ -17,17 +17,17 @@ String path = request.getContextPath();
 		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3" />
 		<meta http-equiv="description" content="This is my page" />
         
-        <link rel="stylesheet" type="text/css" href="<%=path %>/src/main/webapp/css/main/webapp/css/base.css" />
+        <link rel="stylesheet" type="text/css" href="<%=path %>/css/base.css" />
         
         <script language="javascript">
         </script>
 	</head>
 
-	<body leftmargin="2" topmargin="9" background='<%=path %>/src/main/webapp/img/allbg.gif'>
-			<form action="<%=path %>/kecheng?type=kechengAdd" name="formAdd" method="post">
+	<body leftmargin="2" topmargin="9" background='<%=path %>/img/allbg.gif'>
+			<form action="<%=path %>/admin/kecheng/kechengAdd" name="formAdd" method="post">
 				     <table width="98%" align="center" border="0" cellpadding="4" cellspacing="1" bgcolor="#CBD8AC" style="margin-bottom:8px">
 						<tr bgcolor="#E7E7E7">
-						     <td height="14" colspan="100" background="<%=path %>/src/main/webapp/img/tbg.gif">&nbsp;&nbsp;</td>
+						     <td height="14" colspan="100" background="<%=path %>/img/tbg.gif">&nbsp;&nbsp;</td>
 						</tr>
 						<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='red';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
 						    <td width="25%" bgcolor="#FFFFFF" align="right">
