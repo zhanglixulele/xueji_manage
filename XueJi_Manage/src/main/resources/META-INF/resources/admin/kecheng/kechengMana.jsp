@@ -22,7 +22,7 @@ String path = request.getContextPath();
            {
                if(confirm('您确定删除吗？'))
                {
-                   window.location.href="<%=path %>/kecheng?type=kechengDel&id="+id;
+                   window.location.href="/admin/kecheng/kechengDel?id="+id;
                }
            }
            function p()
@@ -31,7 +31,7 @@ String path = request.getContextPath();
            }
            function kechengAdd()
            {
-                 var url="<%=path %>/admin/kecheng/kechengAdd.jsp";
+                 var url="/admin/kecheng/kechengAdd.jsp";
 				 window.location.href=url;
            }
        </script>
@@ -40,6 +40,7 @@ String path = request.getContextPath();
 	<body leftmargin="2" topmargin="2" background='<%=path %>/img/allbg.gif'>
 			<table width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
 				<tr bgcolor="#E7E7E7">
+
 				     <td height="14" colspan="100" background="<%=path %>/img/tbg.gif">&nbsp;&nbsp;</td>
 				</tr>
 				<tr align="center" bgcolor="#FAFAF1" height="22">
@@ -47,7 +48,7 @@ String path = request.getContextPath();
 					<td width="40%">名称</td>
 					<td width="10%">操作</td>
 		        </tr>	
-				<c:forEach items="${requestScope.kechengList}" var="kecheng" varStatus="ss">
+				<c:forEach items="${requestScope.p}" var="kecheng" varStatus="ss">
 				<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='red';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
 					<td bgcolor="#FFFFFF" align="center">
 						${ss.index+1}

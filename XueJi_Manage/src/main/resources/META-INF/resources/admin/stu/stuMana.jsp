@@ -24,7 +24,7 @@ String path = request.getContextPath();
            {
                if(confirm('您确定删除吗？'))
                {
-                   window.location.href="<%=path %>/stu?type=stuDel&id="+id;
+                   window.location.href="/admin/stu/stuDel?id="+id;
                }
            }
            
@@ -90,7 +90,7 @@ String path = request.getContextPath();
 		               <td colspan="10" align="center" style="color: red">学生不存在。请重新查询</td>
 		            </tr>
 		        </c:if>
-				<c:forEach items="${requestScope.stuList}" var="stu">
+				<c:forEach items="${requestScope.p}" var="stu">
 				<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='red';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
 					<td bgcolor="#FFFFFF" align="center">
 						<a href="<%=path %>/stu?type=stuDetail&id=${stu.id}">${stu.xuehao}</a>
@@ -105,7 +105,7 @@ String path = request.getContextPath();
 						${stu.age}
 					</td>
 					<td bgcolor="#FFFFFF" align="center">
-						${stu.banji_name}
+						${stu.banjiId}
 					</td>
 					<td bgcolor="#FFFFFF" align="center">
 					    ${stu.ruxueshijian}
@@ -127,12 +127,13 @@ String path = request.getContextPath();
 						    <input type="hidden" name="name1" value="${stu.name1}"/>
 						    <input type="hidden" name="sex" value="${stu.sex}"/>
 						    <input type="hidden" name="age" value="${stu.age}"/>
-						    <input type="hidden" name="banji_name" value="${stu.banji_name}"/>
+						    <input type="hidden" name="banji_id" value="${stu.banjiId}"/>
 						    <input type="hidden" name="ruxueshijian" value="${stu.ruxueshijian}"/>
 						    <input type="hidden" name="biyeshijian" value="${stu.biyeshijian}"/>
 						    <input type="hidden" name="xuezhi" value="${stu.xuezhi}"/>
 						    <input type="hidden" name=xuexiao value="${stu.xuexiao}"/>
 						    <input type="submit" value="修改"/>
+
 						</form>
 					</td>
 				</tr>
