@@ -150,28 +150,6 @@ String path = request.getContextPath();
 			</table>
 			<br/>
 			
-			<table width='98%'  border='0'style="margin-top:8px;margin-left: 5px;">
-			  <tr>
-			    <td>
-			         <form action="<%=path %>/stu?type=stuSearchByXuehao" name="form11" method="post">
-			                         学号：
-			             <input type="text" name="xuehao" style="width: 130px;"/>
-			             <input type="submit" value="查询" onclick="return check1()"/>
-			         </form>
-			    </td>
-			  </tr>
-			  <tr>
-			    <td>
-			         <form action="<%=path %>/stu?type=stuTongji" name="fomr1" method="post">
-			                班级： 
-		                  <select name="banji_id" id="banji_id" onclick="banjiAll()" style="width: 136px;">
-				              <option value="0">请选择班级</option>
-				          </select>
-				          <input type="submit" value="统计"/>
-				          <img id="indicator" src="<%=path %>/img/loading.gif" style="display:none"/>
-			         </form>
-			    </td>
-			  </tr>
-		    </table>
+
 	</body>
 </html>
